@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>blog</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<style media="screen">
+    .height1{
+      height: 600px;
+    }
+
+    .height2{
+      height:300px;
+    }
+
+
+</style>
+
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 height1 randomColor">
+
+            </div>
+            <div class="col-md-9 height1 randomColor">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 height2 randomColor">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+          //get a random color between 0 and 255
+          function getRandomColor() {
+            return Math.floor(Math.random() * 255);
+          }
+
+          var randomColor = $(".randomColor");
+
+          $.each(randomColor, function(index, item) {
+            $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+          })
+
+        })
+      </script>
+
+    //
+
+      <script type="text/javascript"> //
+        alert("my JS!"); //name of a function, then () to call the function. In this case "my JS!" is the perimeter
+        console.log("Write to the console.....");
+
+        function myFirstFunction(){
+          //whatever is in the {} will run when we call the function
+          console.log("Write from inside the function......")
+        }
+
+        myFirstFunction();
+        myFirstFunction();
+        myFirstFunction();
+        myFirstFunction();
+
+        function myFunctionWithParameter(name){
+
+          console.log("Hello" name);
+        }
+
+        myFunctionWIthParameter("Anderson")
+        myFunctionWithParameter(", how are you?")
+
+      var myOnOff = true;
+      var isDayTime = false;
+
+      var salary = 100000;
+      var carPrice = 25000.25
+
+      var emailAddress = "andersonguelphjs@gmail.com";
+      var sentence = "The Judgment of Paris.";
+      var anotherSentence = "Anderson's Class";
+
+      var salary1 = 100000
+      var salary2 = "100000"
+
+      var taxes = "25000"
+
+      console.log("My take home pay is " +(salary1-taxes));
+
+      console.log("a bunch of info " +salary + " and "+carPrice + " and even more " +isDayTime  );
+
+      console.log(myConcatenation);
+
+      function writeToConsole (myString){
+        console.log(myString);
+      }
+
+      writeToConsole(myConcatentation)
+
+      </script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
