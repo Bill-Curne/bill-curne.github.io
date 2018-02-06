@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vertical Flex</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<style media="screen">
+.height1{
+  height:75px;
+}
+.height2{
+  height:600px;
+}
+.height3{
+  height:150px;
+}
+.height4{
+  height:300px;
+}
+
+.flexSingleItem{ /* center the child element */
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+.flexSpaceAround{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flexVertSpaceAround{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header{
+  line-height:75px;
+  background-color: rgb(0,80,200);
+}
+.footer{
+  line-height:75px;
+  background-color: rgb(0,80,200)
+}
+.colorOne{
+  background-color: rgb(219,218,225);
+}
+.colorGoldOne{
+  background-color: rgb(207,138,52);
+}
+
+li a{
+  color: rgb(10,198,213);
+}
+ul li{
+  list-style: none;
+  text-transform: uppercase;
+}
+ul li a, ul li a:hover{
+  text-decoration: none;
+  font-size: 200%;
+}
+
+</style>
+
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 height1 header">
+              <ul class="flexSpaceAround">
+                  <li>
+                      <a href="#">Home</a>
+                  </li>
+                  <li>
+                      <a href="#">Crying</a>
+                  </li>
+                  <li>
+                      <a href="#">Tears</a>
+                  </li>
+                  <li>
+                      <a href="#">Pain</a>
+                  </li>
+              </ul>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-8 height2 colorOne">
+              <div class="row">
+                  <div class="col-md-6 height4 flexSingleItem">
+                    <div>
+                        centered
+                    </div>
+                  </div>
+                  <div class="col-md-6 height4 flexSingleItem">
+                    <div>
+                        also centered
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 height3 flexSingleItem">
+                    <img src="images/cryingFaceTwo.jpg" alt="crying">
+                  </div>
+                  <div class="col-md-6 height3 flexSingleItem">
+                    <img src="images/cryingFaceThree.jpg" alt="crying">
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 height2 flexVertSpaceAround colorGoldOne">
+              <img src="images/cryingFaceOne.jpg" alt="crying">
+              <img src="images/cryingFaceFour.jpeg" alt="crying">
+              <img src="images/cryingFaceFive.jpg" alt="crying">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 height1 footer">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        //get a random color between 0 and 255
+        function getRandomColor() {
+          return Math.floor(Math.random() * 255);
+        }
+
+        var randomColor = $(".randomColor");
+
+        $.each(randomColor, function(index, item) {
+          $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+        })
+
+      })
+    </script>
+  </body>
+</html>
