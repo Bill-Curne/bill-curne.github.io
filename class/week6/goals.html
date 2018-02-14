@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Week 5</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      .height1{
+        height: 100px;
+      }
+
+      .height2{
+        height: 500px;
+      }
+
+      .height3{
+        height:100px;
+      }
+    </style>
+
+
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 height1 randomColor">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 height2 randomColor">
+
+            </div>
+            <div class="col-md-8 height2">
+
+<table class="table table-striped table-hover">
+    <tr>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Games Played</th>
+      <th>Goals</th>
+      <th>Assists</th>
+      <th>Points</th>
+    </tr>
+    <tr>
+      <td>C</td>
+      <td>Auston Matthews</td>
+      <td>92</td>
+      <td>63</td>
+      <td>63</td>
+      <td>126</td>
+    </tr>
+    <tr>
+      <td>LW</td>
+      <td>Matthew McCaughenehey</td>
+      <td>74</td>
+      <td>32</td>
+      <td>46</td>
+      <td>78</td>
+    </tr>
+</table>
+
+            </div>
+            <div class="col-md-2 height2 randomColor">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 height3 randomColor">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        //get a random color between 0 and 255
+        function getRandomColor() {
+          return Math.floor(Math.random() * 255);
+        }
+
+        var randomColor = $(".randomColor");
+
+        $.each(randomColor, function(index, item) {
+          $(this).css("background-color", "RGB(" + getRandomColor() + "," + getRandomColor() + "," + getRandomColor() + ")");
+        })
+
+      })
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  </body>
+</html>
