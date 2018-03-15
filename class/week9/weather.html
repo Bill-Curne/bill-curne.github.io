@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style media="screen">
+      body{
+        background: linear-gradient(#00FFFF, #0000FF);
+        height: 100%;
+        background-repeat:no-repeat;
+      }
+
+      h1{
+        font-size: 250%;
+        font-weight: bolder;
+        text-align: center;
+      }
+
+      h2{
+        font-size: 150%;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .masthead-nav{
+        background-color: rgba(255,255,255,0.8);
+        position: absolute;
+        top: 0px;
+        width: 100%;
+        border-bottom: solid 4px black;
+      }
+
+      .masthead-footer{
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .weatherDiv{
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        border: solid black;
+        border-width: 3px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        background-color: white;
+      }
+
+      .wi{
+        font-size:3em;
+      }
+
+      .weatherType{
+        font-weight: bold;
+        border: solid thin black;
+        height: 50px;
+        text-align: center;
+        font-size: 120%;
+      }
+
+      .weatherDate{
+        height:60px;
+        border: solid thin black;
+        padding: 2px;
+      }
+
+      .weatherDay{
+        height: 30px;
+        border: solid thin black;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .lower{
+        height: 100px;
+        padding-top:20px;
+        border: solid thin black;
+
+      }
+      .lower i{
+        position: relative;
+        left: 50%;
+        transform: translatex(-50%);
+
+      }
+
+    </style>
+
+  </head>
+  <body>
+<div class="masthead-nav">
+    <h1>Weather Channel</h1>
+</div>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12 weatherDiv">
+
+          </div>
+        </div>
+    </div>
+
+  <div class="masthead-footer">
+    <h2>Thanks For Viewing</h2>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script>
+var iconClasses ={
+  "Rain And Snow": "wi-rain-mix",
+  "Mostly Cloudy": "wi-cloudy",
+  "Breezy": "wi-windy",
+  "Partly Cloudy":"wi-day-sunny-overcast",
+  "Mostly Sunny": "wi-day-sunny"
+}
+
+      var url
+      ="https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22toronto%2C%20ON%22)%20and%20u%3D'c'&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+
+      function processForecast(f){//variable to hold html
+        console.log("forecast");
+        console.dir(f);
+        var html="";
+        for(var i=0;i<f.length;i++){//loop and build the html
+          console.log("i "+i);
+          html+="<div class='dayOfWeek'>";
+          html+="<div class='weatherType'>"+f[i].text+"</div>";
+          html+="<div class='weatherDate'>"+f[i].date+"</div>";
+          html+="<div class='weatherDay'>"+f[i].day+"</div>";
+          html+="<div class='lower'><i class='wi "+iconClasses[f[i].text]+"'></i></div>";
+          html+="</div>";
+        }
+        $(document).ready(function(){//when ready, append html
+          $(".weatherDiv").html(html);
+        })
+      }
+
+
+
+      $.get(url).
+        done(function(data){//success
+          console.log('success');
+          console.dir(data);
+          var forecast = data.query.results.channel.item.forecast
+          console.log("forecast");
+          console.dir("forecast");
+          processForecast(forecast);
+        })
+
+        .fail(function(data){//fail
+          console.log('fail');
+          console.dir(data);
+        })
+    </script>
+  </body>
+</html>
