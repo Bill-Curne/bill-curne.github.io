@@ -165,6 +165,14 @@ var spriteImages = [{
     "height": 130,
     "name": "Heisenberg"
   },
+  {
+    "spriteMapUrl": "https://chell-github.github.io/class/week12/images/masae.png",
+    "numFrames": 29,
+    "width": 2900,
+    "height": 100,
+    "name": "masae"
+  },
+
 ];
 var animations = []; //an array to hold the currently existing sprite obects
 var maxAnimations = spriteImages.length; //how many animations we want on the screen at any one time
